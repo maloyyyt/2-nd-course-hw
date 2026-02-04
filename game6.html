@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор цветов</title>
+</head>
+<body>
+    <h1>Генератор цветов</h1>
+    <div>
+        <button id="colorButton">Сменить цвет</button>
+        <div id="result"></div>
+        <div class="feedback5" id="feedback"></div>
+    </div>
+    <div class="current-color">
+        <p>Текущий цвет:</p>
+        <div class="color-box" id="colorBox"></div>
+        <div class="color-code" id="colorCode">#FFFFFF</div>
+    </div>
+
+    <a href="index.html">Вернуться на главный экран</a>
+    <script>
+        const colorButton = document.getElementById('colorButton');
+        const colorBox = document.getElementById('colorBox');
+        const colorCode = document.getElementById('colorCode');
+        
+        // Функция для генерации случайного цвета в формате HEX
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeBackgroundColor() {
+            const randomColor = getRandomColor();
+            document.body.style.backgroundColor = randomColor;
+
+            colorBox.style.backgroundColor = randomColor;
+            colorCode.textContent = randomColor;
+        }
+
+        colorButton.addEventListener('click', changeBackgroundColor);
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Камень, ножницы, бумага</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="game4_title">Камень, ножницы, бумага</h1>
+    <div class="game-container">
+        <div class="choices">
+            <div class="choice">
+                <h3>Ваш выбор</h3>
+                <div class="choice-value" id="user-choice">-</div>
+            </div>
+            <div class="choice">
+                <h3>Выбор компьютера</h3>
+                <div class="choice-value" id="computer-choice">-</div>
+            </div>
+        </div>
+        
+        <div class="result" id="result">Нажмите кнопку "Играть", чтобы начать</div>
+        
+        <button id="play-button">Играть</button>
+    </div>
+
+    <a href="index.html">Вернуться на главный экран</a>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const playButton = document.getElementById('play-button');
+        const userChoiceElement = document.getElementById('user-choice');
+        const computerChoiceElement = document.getElementById('computer-choice');
+        const resultElement = document.getElementById('result');
+        
+        const choices = ["камень", "ножницы", "бумага"];
+        
+        playButton.addEventListener('click', function() {
+
+            let userChoice = prompt('Введите ваш выбор: камень, ножницы или бумага').toLowerCase();
+            
+            if (!choices.includes(userChoice)) {
+                alert('Пожалуйста, введите корректный вариант: камень, ножницы или бумага');
+                return;
+            }
+            
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            const computerChoice = choices[randomIndex];
+            
+            userChoiceElement.textContent = userChoice;
+            computerChoiceElement.textContent = computerChoice;
+            
+            let result;
+            let resultClass;
+            
+            if (userChoice === computerChoice) {
+                result = "Ничья!";
+                resultClass = "draw";
+            } else if (
+                (userChoice === "камень" && computerChoice === "ножницы") ||
+                (userChoice === "ножницы" && computerChoice === "бумага") ||
+                (userChoice === "бумага" && computerChoice === "камень")
+            ) {
+                result = "Вы победили!";
+                resultClass = "win";
+            } else {
+                result = "Компьютер победил!";
+                resultClass = "lose";
+            }
+            
+            resultElement.textContent = result;
+            resultElement.className = "result " + resultClass;
+            });
+        });
+    </script>
+</body>
+</html>

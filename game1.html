@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Угадай число от 1 до 100</h1>
+    
+    <div class="game1-container">
+        <div class="input1-area">
+            <input type="number" id="guessInput" min="1" max="100" placeholder="Введите число">
+            <button id="guessBtn">Проверить</button>
+            <button id="restartBtn">Начать заново</button>
+        </div>
+        
+        <div class="feedback1" id="feedback">
+            Введите число и нажмите "Проверить"
+        </div>
+        
+        <div class="attempts1" id="attempts">
+            Попыток: 0
+        </div>
+    </div>
+    <a href="index.html">Вернуться на главный экран</a>
+
+    <script>
+        let secretNumber = Math.floor(Math.random() * 100) + 1;
+        let attemptsCount = 0;
+        
+        const guessInput = document.getElementById('guessInput');
+        const guessBtn = document.getElementById('guessBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const feedback = document.getElementById('feedback');
+        const attempts = document.getElementById('attempts');
+        
+        function checkGuess() {
+            const userGuess = parseInt(guessInput.value);
+            
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                feedback.textContent = 'Пожалуйста, введите число от 1 до 100!';
+                feedback.style.backgroundColor = '#ffcccc';
+                return;
+            }
+        
+            attemptsCount++;
+            attempts.textContent = 'Попыток: ' + attemptsCount;
+        
+            if (userGuess === secretNumber) {
+                feedback.textContent = 'Поздравляю! Вы угадали число ' + secretNumber + ' за ' + attemptsCount + ' попыток!';
+                feedback.style.backgroundColor = '#ccffcc';
+            } else if (userGuess < secretNumber) {
+                feedback.textContent = 'Загаданное число больше ' + userGuess;
+                feedback.style.backgroundColor = '#ffffcc';
+            } else {
+                feedback.textContent = 'Загаданное число меньше ' + userGuess;
+                feedback.style.backgroundColor = '#ffffcc';
+            }
+
+            guessInput.value = '';
+        }
+
+        function restartGame() {
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+            attemptsCount = 0;
+            attempts.textContent = 'Попыток: 0';
+            feedback.textContent = 'Введите число и нажмите "Проверить"';
+            feedback.style.backgroundColor = '';
+            guessInput.value = '';
+            guessInput.focus();
+        }
+        
+        guessBtn.addEventListener('click', checkGuess);
+        restartBtn.addEventListener('click', restartGame);
+        
+        guessInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkGuess();
+            }
+        });
+    </script>
+</body>
+</html>
