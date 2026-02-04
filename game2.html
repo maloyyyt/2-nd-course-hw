@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Угадай число</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Простая арифметика</h1>
+    
+    <div class="game2-container">
+        <button onclick="startGame2()">Начать игру</button>
+        <div id="result"></div>
+        <div class="feedback2" id="feedback">
+            Введите число и нажмите "Проверить"
+        </div>
+    </div>
+
+    <a href="index.html">Вернуться на главный экран</a>
+    
+    <script>
+    function startGame2() {  
+        let num1 = Math.floor(Math.random() * 20) + 1;
+        let num2 = Math.floor(Math.random() * 20) + 1;
+        let correctAnswer;
+
+        const operations = ['+', '-', '*', '/'];
+        const operation = operations[Math.floor(Math.random() * operations.length)];
+
+        switch(operation) {
+            case '+':
+                correctAnswer = num1 + num2;
+                break;
+            case '-':
+                if(num1 < num2) [num1, num2] = [num2, num1];
+                correctAnswer = num1 - num2;
+                break;
+            case '*':
+                correctAnswer = num1 * num2;
+                break;
+            case '/':
+                correctAnswer = Math.floor(Math.random() * maxNumber) + 1;
+                num1 = num2 * correctAnswer;
+                break;
+        }
+        const userAnswer = prompt(`Решите пример: ${num1} ${operation} ${num2} = ?`);
+
+        const resultElement = document.getElementById('result');
+        if(userAnswer === null) {
+            resultElement.innerHTML = '<p>Игра прервана</p>';
+        } else if(parseInt(userAnswer) === correctAnswer) {
+            resultElement.innerHTML = '<p style="color: green;">Правильно! Молодец!</p>';
+        } else {
+            resultElement.innerHTML = `<p style="color: red;">Ошибка! Правильный ответ: ${correctAnswer}</p>`;
+        }
+    };
+    </script>
+</body>

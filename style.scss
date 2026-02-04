@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+.center {
+    padding-left: calc(50% - 600px);
+    padding-right: calc(50% - 600px);
+}
+.header {
+    background-color: #E1FF8F;
+    height: 800px;
+    background-image: url(img/background_main.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    &__title {
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        padding-top: 196px;
+        width: 769px;
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        padding-top: 24px;
+        width: 720px;
+    }
+    &__button {
+        margin-top: 48px;
+        display: block;
+        width: 247px;
+        height: 66px;
+        border-width: 1px;
+        border-color: #000000;
+        border-radius: 60px;
+        background-color: #000000;
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 142%;
+        text-align: center;
+        align-content: center;
+        &:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+            transition: all 1s;
+            cursor: pointer;
+        }
+    }
+    &__strip {
+        background-color: #BCEC30;
+        border-width: 1px;
+        margin-top: 184px;
+    }
+}
+.background {
+    background: url(img/background_games.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.games {
+    height: 100%;
+    &__title {
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        padding-top: 94px;
+        &-mobile {
+            display: none;
+        }
+    }
+    &__subtitle {
+        color: #FFFFFF;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        padding-top: 24px;
+    }
+    &__box {
+        margin-top: 72px;
+        padding-bottom: 72px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &-column {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+    }
+    &__card {
+        border-radius: 30px;
+        background-color: #FFFFFF;
+        color: #000000;
+        &:hover {
+            border-color: #000000;
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: all 1s;
+        }
+        &-1 { height: 473px;
+            width: 378px;
+        }
+        &-2 { height: 512px;
+            width: 378px;
+        }
+        &-3 { height: 473px;         
+            width: 378px;
+        }
+        &-4 { height: 551px;
+            width: 378px;
+        }
+        &-5 { height: 512px;
+            width: 378px;
+        }
+        &-6 { height: 551px;
+            width: 378px;
+        }
+    }
+    &__img {
+        width: 100%;
+    }
+    &__number {
+        background-color: #F7F7F7;
+        width: 108px;
+        height: 36px;
+        border-radius: 52.5px;
+        padding-top: 8px;
+        padding-bottom: 10px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 110%;
+        vertical-align: bottom;
+        margin-top: 32px;
+        align-content: center;
+        margin-left: 32px;
+        text-align: center;
+    }
+    &__name { 
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        margin-left: 32px;
+        margin-top: 16px;
+    }
+}
+.minigames {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 64px;
+    padding-bottom: 144px;
+    &__title {
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        color: #FFFFFF;
+        margin-bottom: 72px;
+    }
+    &__card {
+        &-leftside {
+            width: 100%;
+            height: 500px;
+            background-color: #FFFFFF;
+            border-radius: 60px;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+        &-rightside {
+            width: 100%;
+            height: 500px;
+            background-color: #FFFFFF;
+            border-radius: 60px;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+    &__text {
+        display: flex;
+        flex-direction: column;
+        padding-left: 48px;
+    }
+    &__img {
+        height: 100%;
+    }
+    &__name {
+        margin-top: 48px;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 100%;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        justify-content: space-between;
+    }
+    &__description {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 0px;
+        vertical-align: middle;
+        padding-top: 24px;
+        padding-bottom: 36px;
+    }
+    &__button {
+        width: 247px;
+        height: 66px;
+        gap: 10px;
+        border-width: 1px;
+        border-color: #000000;
+        border-radius: 60px;
+        background-color: #000000;
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 142%;
+        letter-spacing: 0%;
+        text-align: center;
+        align-content: center;
+        &:hover {
+            background-color: #fff;
+            color: #000000;
+            transition: all 1s;
+            cursor: pointer;
+        }
+    }
+}
+.footer {
+    height: 150px;
+    background-color: #BDED35;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0px;
+    text-align: center;
+    align-content: center;
+}
+
+@import "_mobile_style";
